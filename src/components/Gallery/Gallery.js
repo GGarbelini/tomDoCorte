@@ -1,0 +1,70 @@
+"use client";
+
+import { useState } from "react";
+import "./Gallery.css";
+import { FaInstagram } from "react-icons/fa";
+
+const images = [
+  "/images/corte1.png",
+  "/images/corte3.png",  
+  "/images/corte5.png",
+  "/images/corte6.png",
+  "/images/corte7.png",
+  "/images/corte8.png",
+];
+
+export default function Gallery() {
+  const [current, setCurrent] = useState(0);
+
+  const next = () => {
+    setCurrent((prev) => (prev + 1) % images.length);
+  };
+
+  const prev = () => {
+    setCurrent((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  // Determinar quais imagens mostrar
+  const visibleImages = (window.innerWidth > 768) ? 3 : 1;
+  const display = [];
+
+  for (let i = 0; i < visibleImages; i++) {
+    display.push(images[(current + i) % images.length]);
+  }
+
+  return (
+    <section id="gallery" className="gallery">
+      <h2>Galeria</h2>
+
+      <div className="carousel">
+        <button className="prev" onClick={prev}>
+          &#10094;
+        </button>
+
+        <div className="carousel-track">
+          {display.map((img, index) => (
+            <img key={index} src={img} alt={`Corte ${current + index + 1}`} />
+          ))}
+        </div>
+
+        <button className="next" onClick={next}>
+          &#10095;
+        </button>
+      </div>
+
+          <div className="instagram-follow">
+        <a
+          href="https://www.instagram.com/tomdocorteoficial"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="instagram-icon"
+        >
+          <FaInstagram />
+          <span className="tooltip">Siga no Instagram</span>
+        </a>
+      </div>
+
+      
+    </section>
+  );
+}
