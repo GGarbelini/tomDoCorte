@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Gallery.css";
 import { FaInstagram } from "react-icons/fa";
 
 const images = [
   "/images/corte1.png",
-  "/images/corte3.png",  
+  "/images/corte3.png",
   "/images/corte5.png",
   "/images/corte6.png",
   "/images/corte7.png",
@@ -15,6 +15,19 @@ const images = [
 
 export default function Gallery() {
   const [current, setCurrent] = useState(0);
+  const [visibleImages, setVisibleImages] = useState(3);
+
+  // ✅ Correção SSR-safe (Next.js / Vercel)
+  useEffect(() => {
+    const handleResize = () => {
+      setVisibleImages(window.innerWidth > 768 ? 3 : 1);
+    };
+
+    handleResize(); // roda ao montar
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const next = () => {
     setCurrent((prev) => (prev + 1) % images.length);
@@ -24,10 +37,7 @@ export default function Gallery() {
     setCurrent((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  // Determinar quais imagens mostrar
-  const visibleImages = (window.innerWidth > 768) ? 3 : 1;
   const display = [];
-
   for (let i = 0; i < visibleImages; i++) {
     display.push(images[(current + i) % images.length]);
   }
@@ -43,7 +53,7 @@ export default function Gallery() {
 
         <div className="carousel-track">
           {display.map((img, index) => (
-            <img key={index} src={img} alt={`Corte ${current + index + 1}`} />
+            <img key={index} src={img} alt={`Corte ${index + 1}`} />
           ))}
         </div>
 
@@ -52,7 +62,8 @@ export default function Gallery() {
         </button>
       </div>
 
-          <div className="instagram-follow">
+      {/* Instagram follow */}
+      <div className="instagram-follow">
         <a
           href="https://www.instagram.com/tomdocorteoficial"
           target="_blank"
@@ -63,8 +74,6 @@ export default function Gallery() {
           <span className="tooltip">Siga no Instagram</span>
         </a>
       </div>
-
-      
     </section>
   );
 }

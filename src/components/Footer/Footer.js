@@ -36,8 +36,8 @@ export default function Footer() {
           <Image
             src="/images/gdev.png"
             alt="Tom do Corte"
-            width={50}
-            height={50}
+            width={40}
+            height={40}
           />
         </Link>
       </div>
