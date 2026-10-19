@@ -14,7 +14,7 @@ export default function Footer() {
 
       <div className="logo">
         <Image
-          src="/images/logo1.png"
+          ssrc="/tomDoCorte/images/logo1.png"
           alt="Tom do Corte"
           width={65}
           height={65}
@@ -34,7 +34,7 @@ export default function Footer() {
           aria-label="Site do desenvolvedor"
         >
           <Image
-            src="/images/gdev.png"
+            src="/tomDoCorte/images/gdev.png"
             alt="Tom do Corte"
             width={40}
             height={40}
