@@ -5,12 +5,14 @@ import "./Gallery.css";
 import { FaInstagram } from "react-icons/fa";
 
 const images = [
-  "/images/corte1.png",
-  "/images/corte3.png",
-  "/images/corte5.png",
-  "/images/corte6.png",
-  "/images/corte7.png",
-  "/images/corte8.png",
+  
+  "/tomDoCorte/images/corte1.png",
+  "/tomDoCorte/images/corte3.png",
+  "/tomDoCorte/images/corte5.png",
+  "/tomDoCorte/images/corte6.png",
+  "/tomDoCorte/images/corte7.png",
+  "/tomDoCorte/images/corte8.png",
+
 ];
 
 export default function Gallery() {
