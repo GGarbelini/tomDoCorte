@@ -15,7 +15,7 @@ export default function Header() {
     <header className="header">
       <div className="logo">
         <Image
-          src="/images/logo1.png"
+          src="/tomDoCorte/images/logo1.png"
           alt="Tom do Corte"
           width={80}   
           height={80}  
