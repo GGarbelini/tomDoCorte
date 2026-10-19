@@ -14,7 +14,7 @@ export default function Contact() {
             rel="noopener noreferrer"
           >
             <Image
-              src="/images/mapa-tom-do-corte.png"
+              src="/tomDoCorte/images/mapa-tom-do-corte.png"
               alt="Localização da Barbearia Tom do Corte"
               width={900}
               height={600}
