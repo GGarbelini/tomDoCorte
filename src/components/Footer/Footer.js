@@ -9,12 +9,12 @@ export default function Footer() {
   return (
     <footer className="footer">
       
-      {/* Linha separadora sutil */}
+     
       <div className="footer-divider"></div>
 
       <div className="logo">
         <Image
-          ssrc="/tomDoCorte/images/logo1.png"
+          src="/tomDoCorte/images/logo1.png"
           alt="Tom do Corte"
           width={65}
           height={65}
